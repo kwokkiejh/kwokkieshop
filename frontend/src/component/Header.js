@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Container, Grid, Button, Typography } from "@material-ui/core";
+import { Link as RouterLink, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,17 +12,19 @@ const Header = () => {
         justify="space-between"
       >
         <Grid item xs>
-          <Typography variant="h6">KwokkieShop</Typography>
+          <NavLink to="/" style={{ textDecoration: "none", color: "unset" }}>
+            <Typography variant="h6">KwokkieShop</Typography>
+          </NavLink>
         </Grid>
 
         <Grid item xs container direction="row" spacing={2} justify="flex-end">
           <Grid item>
-            <Button variant="contained">
+            <Button component={RouterLink} variant="contained" to="/cart">
               <Typography variant="caption">Cart</Typography>
             </Button>
           </Grid>
           <Grid item>
-            <Button variant="contained">
+            <Button component={RouterLink} variant="contained" to="/login">
               <Typography variant="caption">Sign In</Typography>
             </Button>
           </Grid>
