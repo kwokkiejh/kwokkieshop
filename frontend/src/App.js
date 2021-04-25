@@ -28,6 +28,11 @@ const theme = createMuiTheme({
       },
     },
   },
+  shadows: [
+    "none",
+    "0 2px 4px 0px #e5e5e5",
+    ...Array(23).fill("0 2px 4px 0px #e5e5e5"),
+  ],
 });
 
 const App = () => {

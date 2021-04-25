@@ -9,14 +9,14 @@ import {
   Button,
   Box,
 } from "@material-ui/core";
-import { Link as RouterLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {
   return (
     <Card style={{ height: "100%" }} variant="outlined">
-      <RouterLink to={`/product/${product._id}`}>
+      <Link to={`/product/${product._id}`}>
         <CardMedia component="img" image={product.image}></CardMedia>
-      </RouterLink>
+      </Link>
 
       <CardContent>
         <Box margin="1em 0em">
@@ -43,7 +43,7 @@ const Product = ({ product }) => {
             <Grid item xs>
               <Button
                 style={{ float: "right" }}
-                component={RouterLink}
+                component={Link}
                 variant="contained"
                 to={`/product/${product._id}`}
               >
