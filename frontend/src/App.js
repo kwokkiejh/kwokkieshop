@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
+import HomePage from "./container/HomePage";
 import { Container, CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 
@@ -29,9 +30,7 @@ const App = () => {
         <CssBaseline />
         <Header />
         <main>
-          <Container>
-            <h1>Welcome to KwokkieShop</h1>
-          </Container>
+          <HomePage />
         </main>
         <Footer />
       </ThemeProvider>
