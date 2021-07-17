@@ -3,7 +3,7 @@ import { ButtonGroup, Button, Grid, Typography } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import RemoveIcon from "@material-ui/icons/Remove";
 import { useDispatch } from "react-redux";
-import { addToCart } from "../actions/cartItemsActions";
+import { addToCart } from "../../../actions/cartItemsActions";
 import DoneIcon from "@material-ui/icons/Done";
 import Grow from "@material-ui/core/Grow";
 

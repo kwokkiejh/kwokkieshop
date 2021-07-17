@@ -2,15 +2,15 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Grid, Box } from "@material-ui/core";
-import LoadingSpinner from "../component/LoadingSpinner";
-import ErrorMessage from "../component/ErrorMessage";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
 
 import {
     getProductDetails,
     clearProductDetails,
-} from "../actions/productActions";
-import ProductDetailsActionButtons from "../component/ProductDetailsActionButtons";
-import ProductDetailsContent from "../component/ProductDetailsContent";
+} from "../../actions/productActions";
+import ProductDetailsActionButtons from "./components/ProductDetailsActionButtons";
+import ProductDetailsContent from "./components/ProductDetailsContent";
 const ProductDetails = ({ match }) => {
     const dispatch = useDispatch();
 
