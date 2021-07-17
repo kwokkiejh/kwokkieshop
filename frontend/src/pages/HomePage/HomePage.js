@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Grid, Typography } from "@material-ui/core";
-import Product from "../component/Product";
+import Product from "./components/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { listProducts } from "../actions/productActions";
-import LoadingSpinner from "../component/LoadingSpinner";
-import ErrorMessage from "../component/ErrorMessage";
+import { listProducts } from "../../actions/productActions";
+import LoadingSpinner from "../../components/LoadingSpinner";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const HomePage = () => {
     const dispatch = useDispatch();

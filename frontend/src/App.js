@@ -1,11 +1,11 @@
 import "./App.css";
-import Header from "./component/Header";
-import Footer from "./component/Footer";
-import HomePage from "./container/HomePage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import HomePage from "./pages/HomePage/HomePage";
 import { Container, CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ProductDetails from "./container/ProductDetails";
+import ProductDetails from "./pages/ProductDetails/ProductDetails";
 const theme = createMuiTheme({
     overrides: {
         MuiCssBaseline: {
