@@ -38,7 +38,7 @@ const ProductDetails = ({ match }) => {
                 <ErrorMessage />
             ) : (
                 <Grid container direction="row">
-                    <Grid item xs={6} style={{ maxHeight: "60vh" }}>
+                    <Grid item xs={6} style={{ height: "60vh" }}>
                         <img
                             src={product.image}
                             alt="productImage"

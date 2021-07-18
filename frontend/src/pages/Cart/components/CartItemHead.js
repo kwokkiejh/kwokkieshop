@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Divider, Grid, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -18,17 +18,20 @@ const CartItemHead = () => {
     const classes = useStyles();
 
     return (
-        <Grid container direction="row">
-            <Grid item xs={6} className={classes.gridItem}>
-                <Typography>Item</Typography>
+        <>
+            <Grid container direction="row">
+                <Grid item xs={6} className={classes.gridItem}>
+                    <Typography variant="caption">Item</Typography>
+                </Grid>
+                <Grid item xs={3} className={classes.gridItem}>
+                    <Typography variant="caption">Quantity</Typography>
+                </Grid>
+                <Grid item xs={2} className={classes.gridItem}>
+                    <Typography variant="caption">Price</Typography>
+                </Grid>
             </Grid>
-            <Grid item xs={3} className={classes.gridItem}>
-                <Typography>Quantity</Typography>
-            </Grid>
-            <Grid item xs={2} className={classes.gridItem}>
-                <Typography>Price</Typography>
-            </Grid>
-        </Grid>
+            <Divider style={{ margin: "0.5rem" }} />
+        </>
     );
 };
 

@@ -69,6 +69,7 @@ const ProductDetailsActionButtons = ({ productId, countInStock }) => {
                         onClick={addToCartHandler}
                         fullWidth
                         variant="contained"
+                        style={{ backgroundColor: "#dfafa7" }}
                     >
                         <Typography>Add to Cart</Typography>
                     </Button>

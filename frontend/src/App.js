@@ -13,13 +13,13 @@ const theme = createMuiTheme({
         MuiCssBaseline: {
             "@global": {
                 body: {
-                    backgroundColor: "#ffffff",
+                    backgroundColor: "#f7f7f7",
                 },
             },
         },
         MuiContainer: {
             root: {
-                padding: "1rem",
+                padding: "1rem ",
             },
         },
         MuiCardContent: {

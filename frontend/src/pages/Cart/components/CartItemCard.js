@@ -12,7 +12,7 @@ const useStyles = makeStyles({
         alignItems: "center",
     },
     imageSize: {
-        height: "100%",
+        height: "180px",
         width: "100%",
         padding: "1rem",
     },
@@ -36,14 +36,14 @@ const CartItemCard = ({ cartItem }) => {
     return (
         <>
             <Grid container direction="row" alignItems="stretch">
-                <Grid item xs={2} className={classes.gridItem}>
+                <Grid item xs={3} className={classes.gridItem}>
                     <img
                         src={image}
                         alt="productImage"
                         className={classes.imageSize}
                     />
                 </Grid>
-                <Grid item xs={4} className={classes.gridItem}>
+                <Grid item xs={3} className={classes.gridItem}>
                     <Typography>{name}</Typography>
                 </Grid>
                 <Grid item xs={3} className={classes.gridItem}>

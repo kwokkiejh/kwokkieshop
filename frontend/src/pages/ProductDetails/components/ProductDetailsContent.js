@@ -6,7 +6,7 @@ const ProductDetailsContent = ({ product }) => {
         <>
             <Typography variant="h5">{product.name}</Typography>
             <Divider />
-            <Typography variant="h5">{product.price}</Typography>
+            <Typography variant="h5">${product.price}</Typography>
             <Divider />
             <Typography variant="body1" style={{ fontWeight: "bold" }}>
                 Description

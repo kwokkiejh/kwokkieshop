@@ -16,7 +16,7 @@ const Header = () => {
     const { cartItems } = cart;
 
     return (
-        <Paper style={{ position: "relative" }}>
+        <Paper style={{ position: "relative", backgroundColor: "#f7f7f7" }}>
             <Container>
                 <Grid
                     container
@@ -29,7 +29,12 @@ const Header = () => {
                             to="/"
                             style={{ textDecoration: "none", color: "unset" }}
                         >
-                            <Typography variant="h6">KwokkieShop</Typography>
+                            <Typography
+                                variant="h6"
+                                style={{ fontWeight: "bold" }}
+                            >
+                                KwokkieShop
+                            </Typography>
                         </NavLink>
                     </Grid>
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Typography, Container } from "@material-ui/core";
+import { Grid, Typography, Container, Box } from "@material-ui/core";
 import CartItemCard from "./components/CartItemCard";
 import { useSelector } from "react-redux";
 import CartItemHead from "./components/CartItemHead";
@@ -36,8 +36,11 @@ const Cart = () => {
 
     return (
         <>
+            <Container>
+                <Typography variant="h5">Shopping Cart</Typography>
+            </Container>
             {cartItems.length > 0 ? (
-                <Grid container direction="row" alignItems="stretch">
+                <Grid item container direction="row" alignItems="stretch">
                     <Grid item xs={8}>
                         <Container>
                             <CartItemHead />
@@ -49,8 +52,8 @@ const Cart = () => {
                     <Grid item container xs={4}>
                         <Container
                             style={{
-                                backgroundColor: "#f7f7f7",
                                 display: "flex",
+                                minHeight: "60vh",
                             }}
                         >
                             <CartSummary
