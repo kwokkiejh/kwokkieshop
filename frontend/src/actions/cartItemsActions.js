@@ -17,3 +17,7 @@ export const addToCart = (id, qty) => async (dispatch) => {
         dispatch({ type: "CART_ERROR", payload: error });
     }
 };
+
+export const removeFromCart = (productId) => async (dispatch) => {
+    dispatch({ type: "CART_REMOVE_ITEM", payload: productId });
+};

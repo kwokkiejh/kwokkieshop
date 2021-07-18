@@ -7,7 +7,7 @@ const ErrorMessage = () => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            padding="40px"
+            padding="2rem"
         >
             <Typography variant="h3">
                 Sorry, this page isn't available

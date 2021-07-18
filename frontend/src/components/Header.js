@@ -16,7 +16,7 @@ const Header = () => {
     const { cartItems } = cart;
 
     return (
-        <Paper>
+        <Paper style={{ position: "relative" }}>
             <Container>
                 <Grid
                     container

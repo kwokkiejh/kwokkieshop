@@ -2,6 +2,8 @@ import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage/HomePage";
+import Cart from "./pages/Cart/Cart";
+
 import { Container, CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -17,7 +19,7 @@ const theme = createMuiTheme({
         },
         MuiContainer: {
             root: {
-                padding: "1em",
+                padding: "1rem",
             },
         },
         MuiCardContent: {
@@ -47,10 +49,9 @@ const App = () => {
                 <CssBaseline />
                 <Header />
                 <main>
-                    <Container>
-                        <Route path="/" component={HomePage} exact />
-                        <Route path="/product/:id" component={ProductDetails} />
-                    </Container>
+                    <Route path="/" component={HomePage} exact />
+                    <Route path="/cart" component={Cart} exact />
+                    <Route path="/product/:id" component={ProductDetails} />
                 </main>
                 <Footer />
             </ThemeProvider>
