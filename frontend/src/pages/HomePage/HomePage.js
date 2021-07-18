@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Grid, Typography } from "@material-ui/core";
+import { Grid, Typography, Container } from "@material-ui/core";
 import Product from "./components/Product";
 import { useDispatch, useSelector } from "react-redux";
 import { listProducts } from "../../actions/productActions";
@@ -17,7 +17,7 @@ const HomePage = () => {
     }, [dispatch]);
 
     return (
-        <>
+        <Container>
             {loading ? (
                 <LoadingSpinner />
             ) : error ? (
@@ -48,7 +48,7 @@ const HomePage = () => {
                     </Grid>
                 </>
             )}
-        </>
+        </Container>
     );
 };
 

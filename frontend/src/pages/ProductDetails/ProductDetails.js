@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Grid, Box } from "@material-ui/core";
+import { Button, Grid, Box, Typography, Container } from "@material-ui/core";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
 
@@ -26,8 +26,8 @@ const ProductDetails = ({ match }) => {
     }, [dispatch, match.params.id]);
 
     return (
-        <>
-            <Box padding="2em 0em">
+        <Container>
+            <Box padding="2rem 0rem">
                 <Button component={Link} variant="outlined" to="/">
                     Go Back
                 </Button>
@@ -52,21 +52,27 @@ const ProductDetails = ({ match }) => {
                         container
                         direction="column"
                         justify="space-between"
-                        style={{ paddingLeft: "2em" }}
+                        style={{ paddingLeft: "2rem" }}
                     >
                         <Grid item>
                             <ProductDetailsContent product={product} />
                         </Grid>
-                        <Grid item container direction="row">
-                            <ProductDetailsActionButtons
-                                productId={product._id}
-                                countInStock={product.countInStock}
-                            />
-                        </Grid>
+                        {product.countInStock !== 0 ? (
+                            <Grid item container direction="row">
+                                <ProductDetailsActionButtons
+                                    productId={product._id}
+                                    countInStock={product.countInStock}
+                                />
+                            </Grid>
+                        ) : (
+                            <Grid item>
+                                <Typography>Sorry, out of stock...</Typography>
+                            </Grid>
+                        )}
                     </Grid>
                 </Grid>
             )}
-        </>
+        </Container>
     );
 };
 

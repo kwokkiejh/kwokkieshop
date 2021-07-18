@@ -19,10 +19,10 @@ const Product = ({ product }) => {
             </Link>
 
             <CardContent>
-                <Box margin="1em 0em">
+                <Box margin="1rem 0rem">
                     <Typography
                         style={{
-                            height: "2em",
+                            height: "2rem",
                             whiteSpace: "nowrap",
                             textOverflow: "ellipsis",
                             overflow: "hidden",
@@ -33,7 +33,7 @@ const Product = ({ product }) => {
                     </Typography>
                 </Box>
                 <Divider />
-                <Box margin="1em 0em">
+                <Box margin="1rem 0rem">
                     <Grid container direction="row" justify="space-between">
                         <Grid item xs>
                             <Typography variant="h6" component="p">
@@ -53,7 +53,7 @@ const Product = ({ product }) => {
                     </Grid>
                 </Box>
                 <Divider />
-                <Box margin="1em 0em">
+                <Box margin="1rem 0rem">
                     <Typography variant="body2" component="p">
                         {product.rating} stars from {product.numReviews} reviews
                     </Typography>
