@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
-import { Grid, Typography, Container, Box } from "@material-ui/core";
+import { Grid, Typography, Container } from "@material-ui/core";
 import CartItemCard from "./components/CartItemCard";
 import { useSelector } from "react-redux";
 import CartItemHead from "./components/CartItemHead";
 import CartSummary from "./components/CartSummary";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles({
+    root: {
+        paddingTop: "2rem",
+        paddingBottom: "2rem",
+    },
+});
 const Cart = () => {
+    const classes = useStyles();
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
 
@@ -35,10 +43,8 @@ const Cart = () => {
     }, [cartItems, shippingPrice]);
 
     return (
-        <>
-            <Container>
-                <Typography variant="h5">Shopping Cart</Typography>
-            </Container>
+        <Container className={classes.root}>
+            <Typography variant="h5">Shopping Cart</Typography>
             {cartItems.length > 0 ? (
                 <Grid item container direction="row" alignItems="stretch">
                     <Grid item xs={8}>
@@ -53,7 +59,7 @@ const Cart = () => {
                         <Container
                             style={{
                                 display: "flex",
-                                minHeight: "60vh",
+                                height: "60vh",
                             }}
                         >
                             <CartSummary
@@ -67,7 +73,7 @@ const Cart = () => {
             ) : (
                 <Typography>Your cart is empty!</Typography>
             )}
-        </>
+        </Container>
     );
 };
 

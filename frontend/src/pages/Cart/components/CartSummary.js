@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Typography, Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
+import clsx from "clsx";
 
 const useStyles = makeStyles({
     bold: {
@@ -8,18 +9,12 @@ const useStyles = makeStyles({
     },
     price: {
         textAlign: "right",
-        fontWeight: "bold",
     },
 });
 const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
     const classes = useStyles();
     return (
-        <Grid
-            container
-            direction="column"
-            justify="space-between"
-            style={{ fontWeight: "bold" }}
-        >
+        <Grid container direction="column" justify="space-between">
             <Grid item container>
                 <Grid item xs={12}>
                     <Box marginBottom="2rem">
@@ -29,7 +24,7 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
                     </Box>
                 </Grid>
                 <Grid item xs={8}>
-                    <Typography className={classes.bold}>Subtotal</Typography>
+                    <Typography>Subtotal</Typography>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography className={classes.price}>
@@ -37,7 +32,7 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
                     </Typography>
                 </Grid>
                 <Grid item xs={8}>
-                    <Typography className={classes.bold}>Shipping</Typography>
+                    <Typography>Shipping</Typography>
                 </Grid>
                 <Grid item xs={4}>
                     <Typography className={classes.price}>
@@ -55,7 +50,12 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
                                 </Typography>
                             </Grid>
                             <Grid item xs={4}>
-                                <Typography className={classes.price}>
+                                <Typography
+                                    className={clsx(
+                                        classes.bold,
+                                        classes.price
+                                    )}
+                                >
                                     ${totalPrice}
                                 </Typography>
                             </Grid>

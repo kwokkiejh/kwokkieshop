@@ -1,14 +1,5 @@
 import React from "react";
-import {
-    Typography,
-    Card,
-    Divider,
-    CardContent,
-    Grid,
-    CardMedia,
-    Button,
-    Box,
-} from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
 const Product = ({ product }) => {

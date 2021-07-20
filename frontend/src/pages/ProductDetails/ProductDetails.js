@@ -1,17 +1,25 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Grid, Box, Typography, Container } from "@material-ui/core";
+import { Grid, Typography, Container } from "@material-ui/core";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-
+import { makeStyles } from "@material-ui/core/styles";
 import {
     getProductDetails,
     clearProductDetails,
 } from "../../actions/productActions";
 import ProductDetailsActionButtons from "./components/ProductDetailsActionButtons";
 import ProductDetailsContent from "./components/ProductDetailsContent";
+
+const useStyles = makeStyles({
+    root: {
+        paddingTop: "2rem",
+        paddingBottom: "2rem",
+    },
+});
+
 const ProductDetails = ({ match }) => {
+    const classes = useStyles();
     const dispatch = useDispatch();
 
     const productDetails = useSelector((state) => state.productDetails);
@@ -25,13 +33,12 @@ const ProductDetails = ({ match }) => {
         };
     }, [dispatch, match.params.id]);
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
-        <Container>
-            <Box padding="2rem 0rem">
-                <Button component={Link} variant="outlined" to="/">
-                    Go Back
-                </Button>
-            </Box>
+        <Container className={classes.root}>
             {loading ? (
                 <LoadingSpinner />
             ) : error ? (

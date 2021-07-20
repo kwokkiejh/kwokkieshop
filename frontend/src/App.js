@@ -1,25 +1,33 @@
 import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage/HomePage";
 import Cart from "./pages/Cart/Cart";
 
-import { Container, CssBaseline } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
+import Layout from "./components/Layout";
 const theme = createMuiTheme({
+    typography: {
+        fontFamily: ["Montserrat"].join(","),
+    },
     overrides: {
         MuiCssBaseline: {
             "@global": {
                 body: {
-                    backgroundColor: "#f7f7f7",
+                    backgroundColor: "#fff",
+                },
+                main: {
+                    display: "flex",
+                    flexDirection: "column",
+                    backgroundColor: "#f9f9f8",
+                    minHeight: "80vh",
                 },
             },
         },
         MuiContainer: {
             root: {
-                padding: "1rem ",
+                padding: "1rem",
             },
         },
         MuiCardContent: {
@@ -47,13 +55,13 @@ const App = () => {
         <Router>
             <ThemeProvider theme={theme}>
                 <CssBaseline />
-                <Header />
-                <main>
-                    <Route path="/" component={HomePage} exact />
-                    <Route path="/cart" component={Cart} exact />
-                    <Route path="/product/:id" component={ProductDetails} />
-                </main>
-                <Footer />
+                <Layout>
+                    <Switch>
+                        <Route path="/" component={HomePage} exact />
+                        <Route path="/cart" component={Cart} exact />
+                        <Route path="/product/:id" component={ProductDetails} />
+                    </Switch>
+                </Layout>
             </ThemeProvider>
         </Router>
     );
