@@ -4,7 +4,7 @@ import Cart from "./pages/Cart/Cart";
 
 import { CssBaseline } from "@material-ui/core";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Layout from "./components/Layout";
 const theme = createMuiTheme({
