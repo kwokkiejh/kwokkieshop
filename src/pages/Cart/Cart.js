@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
     cartSummary: {
         display: "flex",
         height: "60vh",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
             paddingLeft: 0,
         },
     },
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Cart = () => {
     const theme = useTheme();
-    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
     const classes = useStyles();
 
     const cart = useSelector((state) => state.cart);

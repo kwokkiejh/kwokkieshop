@@ -5,8 +5,6 @@ import {
     ListItem,
     ListItemText,
     Collapse,
-    Box,
-    Typography,
     ListItemSecondaryAction,
     IconButton,
 } from "@material-ui/core";
@@ -54,13 +52,13 @@ const TempDrawer = ({
                             <ListItemText primary="All" />
                         </ListItem>
                         <ListItem button className={classes.nested}>
-                            <ListItemText primary="Apparels" />
+                            <ListItemText primary="Living" />
+                        </ListItem>
+                        <ListItem button className={classes.nested}>
+                            <ListItemText primary="Apparel" />
                         </ListItem>
                         <ListItem button className={classes.nested}>
                             <ListItemText primary="Toys" />
-                        </ListItem>
-                        <ListItem button className={classes.nested}>
-                            <ListItemText primary="Crafts" />
                         </ListItem>
                     </List>
                 </Collapse>

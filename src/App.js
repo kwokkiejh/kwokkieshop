@@ -11,16 +11,29 @@ const theme = createMuiTheme({
     typography: {
         fontFamily: ["Montserrat"].join(","),
     },
+    palette: {
+        primary: {
+            main: "#dfafa7",
+        },
+    },
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 768,
+            md: 960,
+            lg: 1280,
+            xl: 1920,
+        },
+    },
     overrides: {
         MuiCssBaseline: {
             "@global": {
                 body: {
-                    backgroundColor: "#fff",
+                    backgroundColor: "#f9f9f8",
                 },
                 main: {
                     display: "flex",
                     flexDirection: "column",
-                    backgroundColor: "#f9f9f8",
                     minHeight: "80vh",
                 },
             },

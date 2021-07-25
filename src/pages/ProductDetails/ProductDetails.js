@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Grid, Typography, Container } from "@material-ui/core";
+import { Grid, Typography, Container, useMediaQuery } from "@material-ui/core";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import ErrorMessage from "../../components/ErrorMessage";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 import {
     getProductDetails,
     clearProductDetails,
 } from "../../actions/productActions";
 import ProductDetailsActionButtons from "./components/ProductDetailsActionButtons";
 import ProductDetailsContent from "./components/ProductDetailsContent";
+import ImageComponent from "../../components/common/ImageComponent";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         paddingTop: "2rem",
         paddingBottom: "2rem",
@@ -20,13 +21,23 @@ const useStyles = makeStyles({
         height: "60vh",
         width: "100%",
     },
-});
+    gridProduct: {
+        [theme.breakpoints.up("sm")]: {
+            paddingLeft: "2rem",
+        },
+    },
+    gridContent: {
+        marginBottom: "2rem",
+    },
+}));
 
 const ProductDetails = ({ match }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
+    const theme = useTheme();
+    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
     useEffect(() => {
         dispatch(getProductDetails(match.params.id));
@@ -48,22 +59,21 @@ const ProductDetails = ({ match }) => {
                 <ErrorMessage />
             ) : (
                 <Grid container>
-                    <Grid item xs={6}>
-                        <img
-                            src={product.image}
-                            alt="productImage"
-                            className={classes.image}
+                    <Grid item xs={matchesSmallScreen ? 12 : 6}>
+                        <ImageComponent
+                            source={product.image}
+                            imageStyle={{ height: "60vh", width: "100%" }}
                         />
                     </Grid>
                     <Grid
                         item
-                        xs={6}
+                        xs={matchesSmallScreen ? 12 : 6}
                         container
                         direction="column"
                         justify="space-between"
-                        style={{ paddingLeft: "2rem" }}
+                        className={classes.gridProduct}
                     >
-                        <Grid item style={{ marginBottom: "2rem" }}>
+                        <Grid item className={classes.gridContent}>
                             <ProductDetailsContent product={product} />
                         </Grid>
                         {product.countInStock !== 0 ? (
