@@ -16,12 +16,15 @@ const useStyles = makeStyles({
         paddingTop: "2rem",
         paddingBottom: "2rem",
     },
+    image: {
+        height: "60vh",
+        width: "100%",
+    },
 });
 
 const ProductDetails = ({ match }) => {
     const classes = useStyles();
     const dispatch = useDispatch();
-
     const productDetails = useSelector((state) => state.productDetails);
     const { loading, error, product } = productDetails;
 
@@ -44,13 +47,12 @@ const ProductDetails = ({ match }) => {
             ) : error ? (
                 <ErrorMessage />
             ) : (
-                <Grid container direction="row">
-                    <Grid item xs={6} style={{ height: "60vh" }}>
+                <Grid container>
+                    <Grid item xs={6}>
                         <img
                             src={product.image}
                             alt="productImage"
-                            width="100%"
-                            height="100%"
+                            className={classes.image}
                         />
                     </Grid>
                     <Grid
@@ -61,11 +63,11 @@ const ProductDetails = ({ match }) => {
                         justify="space-between"
                         style={{ paddingLeft: "2rem" }}
                     >
-                        <Grid item>
+                        <Grid item style={{ marginBottom: "2rem" }}>
                             <ProductDetailsContent product={product} />
                         </Grid>
                         {product.countInStock !== 0 ? (
-                            <Grid item container direction="row">
+                            <Grid item container>
                                 <ProductDetailsActionButtons
                                     productId={product._id}
                                     countInStock={product.countInStock}

@@ -30,12 +30,7 @@ const HomePage = () => {
                         ) : error ? (
                             <ErrorMessage />
                         ) : (
-                            <Grid
-                                container
-                                direction="row"
-                                alignItems="stretch"
-                                spacing={2}
-                            >
+                            <Grid container alignItems="stretch" spacing={2}>
                                 <Grid item xs={12}>
                                     <Typography
                                         variant="h4"
