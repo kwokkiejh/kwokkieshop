@@ -17,7 +17,7 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
         <Grid container direction="column" justify="space-around">
             <Grid item container>
                 <Grid item xs={12}>
-                    <Box marginBottom="2rem">
+                    <Box marginBottom="1rem">
                         <Typography variant="h6" className={classes.bold}>
                             Summary
                         </Typography>
@@ -42,7 +42,7 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
             </Grid>
             <Grid item container>
                 <Grid item xs={12}>
-                    <Box marginBottom="2rem">
+                    <Box marginBottom="1rem">
                         <Grid item container>
                             <Grid item xs={8}>
                                 <Typography className={classes.bold}>
@@ -67,9 +67,11 @@ const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
                         fullWidth
                         variant="contained"
                         size="large"
-                        style={{ backgroundColor: "#dfafa7" }}
+                        color="primary"
                     >
-                        Checkout
+                        <Typography style={{ fontWeight: "bold" }}>
+                            Checkout
+                        </Typography>
                     </Button>
                 </Grid>
             </Grid>

@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Drawer, Typography } from "@material-ui/core";
 import Header from "./Header";
 import Footer from "./Footer";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import CondensedHeader from "./CondensedHeader";
 import TempDrawer from "./TempDrawer";
 
 const Layout = (props) => {
     const theme = useTheme();
-    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
 
     const [tempDrawer, setTempDrawer] = useState(false);
     const handleTempDrawer = () => {

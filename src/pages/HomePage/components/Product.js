@@ -1,16 +1,15 @@
 import React from "react";
 import { Typography, Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import ImageComponent from "../../../components/common/ImageComponent";
 
 const Product = ({ product }) => {
     return (
         <Box>
             <Link to={`/product/${product._id}`}>
-                <img
-                    src={product.image}
-                    alt="productImage"
-                    width="100%"
-                    height="250px"
+                <ImageComponent
+                    source={product.image}
+                    imageStyle={{ width: "100%", height: "250px" }}
                 />
             </Link>
 

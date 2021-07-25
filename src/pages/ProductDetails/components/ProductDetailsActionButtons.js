@@ -10,7 +10,7 @@ import { makeStyles, useTheme } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     gridItem: {
         display: "flex",
-        [theme.breakpoints.down("sm")]: {
+        [theme.breakpoints.down("xs")]: {
             marginBottom: "1rem",
         },
     },
@@ -21,7 +21,7 @@ const ProductDetailsActionButtons = ({ productId, countInStock }) => {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
     const theme = useTheme();
-    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("xs"));
     const classes = useStyles();
 
     const dispatch = useDispatch();
@@ -52,7 +52,7 @@ const ProductDetailsActionButtons = ({ productId, countInStock }) => {
         <>
             <Grid
                 item
-                xs={matchesSmallScreen ? 12 : 4}
+                xs={matchesSmallScreen ? 12 : 5}
                 className={classes.gridItem}
             >
                 <QuantitySelectionButton
@@ -63,7 +63,7 @@ const ProductDetailsActionButtons = ({ productId, countInStock }) => {
             </Grid>
             <Grid
                 item
-                xs={matchesSmallScreen ? 12 : 8}
+                xs={matchesSmallScreen ? 12 : 7}
                 className={classes.gridItem}
             >
                 {addedToCart ? (
@@ -81,9 +81,11 @@ const ProductDetailsActionButtons = ({ productId, countInStock }) => {
                         onClick={addToCartHandler}
                         fullWidth
                         variant="contained"
-                        style={{ backgroundColor: "#dfafa7" }}
+                        color="primary"
                     >
-                        <Typography>Add to Cart</Typography>
+                        <Typography style={{ fontWeight: "bold" }}>
+                            Add to Cart
+                        </Typography>
                     </Button>
                 )}
             </Grid>

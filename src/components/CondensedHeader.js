@@ -8,9 +8,6 @@ import {
     Box,
     Badge,
     IconButton,
-    Drawer,
-    List,
-    ListItem,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";

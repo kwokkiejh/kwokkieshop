@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { addToCart, removeFromCart } from "../../../actions/cartItemsActions";
 import ClearIcon from "@material-ui/icons/Clear";
 import { makeStyles } from "@material-ui/core/styles";
+import ImageComponent from "../../../components/common/ImageComponent";
 const useStyles = makeStyles({
     gridMiddle: {
         display: "flex",
@@ -57,10 +58,9 @@ const CartItemCard = ({ cartItem }) => {
         <>
             <Grid container className={classes.root}>
                 <Grid item xs className={classes.gridImage}>
-                    <img
-                        src={image}
-                        alt="productImage"
-                        className={classes.imageSize}
+                    <ImageComponent
+                        source={image}
+                        imageStyle={{ height: "100%", width: "100%" }}
                     />
                 </Grid>
                 <Grid

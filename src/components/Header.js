@@ -21,7 +21,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
     root: { zIndex: theme.zIndex.appBar, position: "relative" },
     popper: {
-        width: "100vw",
+        width: "100%",
         height: "80px",
     },
     popperPaper: {
@@ -56,12 +56,7 @@ const Header = ({ shopMenu, handleShopMenu }) => {
 
     return (
         <>
-            <Paper
-                ref={inputEl}
-                square
-                variant="outlined"
-                className={classes.root}
-            >
+            <Paper ref={inputEl} square className={classes.root} elevation={0}>
                 <Container>
                     <Grid container alignItems="center" justify="space-between">
                         <Grid item xs>
@@ -131,49 +126,61 @@ const Header = ({ shopMenu, handleShopMenu }) => {
                     </Grid>
                 </Container>
             </Paper>
-            <Popper
-                open={shopMenu}
-                anchorEl={inputEl.current}
-                placement="bottom-left"
-                container={inputEl.current}
-                className={classes.popper}
-                popperOptions={{
-                    modifiers: {
-                        preventOverflow: {
-                            padding: 0,
+            <div id="popperHere">
+                <Popper
+                    open={shopMenu}
+                    anchorEl={inputEl.current}
+                    placement="bottom-left"
+                    container={inputEl.current}
+                    className={classes.popper}
+                    popperOptions={{
+                        modifiers: {
+                            preventOverflow: {
+                                padding: 0,
+                            },
                         },
-                    },
-                }}
-            >
-                <ClickAwayListener onClickAway={handleShopMenu}>
-                    <Paper square elevation={0} className={classes.popperPaper}>
-                        <Container>
-                            <Grid
-                                container
-                                spacing={6}
-                                justify="center"
-                                className={classes.centerText}
-                            >
-                                <Grid item>
-                                    <Typography variant="h6">All</Typography>
-                                </Grid>
+                    }}
+                >
+                    <ClickAwayListener onClickAway={handleShopMenu}>
+                        <Paper
+                            square
+                            elevation={0}
+                            className={classes.popperPaper}
+                        >
+                            <Container>
+                                <Grid
+                                    container
+                                    spacing={6}
+                                    justify="center"
+                                    className={classes.centerText}
+                                >
+                                    <Grid item>
+                                        <Typography variant="h6">
+                                            All
+                                        </Typography>
+                                    </Grid>
 
-                                <Grid item>
-                                    <Typography variant="h6">
-                                        Apparels
-                                    </Typography>
+                                    <Grid item>
+                                        <Typography variant="h6">
+                                            Living
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="h6">
+                                            Apparel
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item>
+                                        <Typography variant="h6">
+                                            Toys
+                                        </Typography>
+                                    </Grid>
                                 </Grid>
-                                <Grid item>
-                                    <Typography variant="h6">Toys</Typography>
-                                </Grid>
-                                <Grid item>
-                                    <Typography variant="h6">Crafts</Typography>
-                                </Grid>
-                            </Grid>
-                        </Container>
-                    </Paper>
-                </ClickAwayListener>
-            </Popper>
+                            </Container>
+                        </Paper>
+                    </ClickAwayListener>
+                </Popper>
+            </div>
             <Backdrop className={classes.backdrop} open={shopMenu}></Backdrop>
         </>
     );
