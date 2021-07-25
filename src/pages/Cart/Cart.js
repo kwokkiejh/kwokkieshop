@@ -1,19 +1,42 @@
 import React, { useEffect } from "react";
-import { Grid, Typography, Container } from "@material-ui/core";
+import {
+    Grid,
+    Typography,
+    Container,
+    Divider,
+    useMediaQuery,
+} from "@material-ui/core";
 import CartItemCard from "./components/CartItemCard";
 import { useSelector } from "react-redux";
-import CartItemHead from "./components/CartItemHead";
 import CartSummary from "./components/CartSummary";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     root: {
         paddingTop: "2rem",
         paddingBottom: "2rem",
     },
-});
+    cartSummary: {
+        display: "flex",
+        height: "60vh",
+        [theme.breakpoints.down("sm")]: {
+            paddingLeft: 0,
+        },
+    },
+    cart: {
+        paddingLeft: 0,
+    },
+    divider: {
+        backgroundColor: theme.palette.text.primary,
+        marginBottom: "1rem",
+        width: "80px",
+    },
+}));
 const Cart = () => {
+    const theme = useTheme();
+    const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
     const classes = useStyles();
+
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
 
@@ -46,22 +69,20 @@ const Cart = () => {
         <Container className={classes.root}>
             <Typography variant="h5">Shopping Cart</Typography>
             {cartItems.length > 0 ? (
-                <Grid item container direction="row" alignItems="stretch">
-                    <Grid item xs={8}>
-                        <Container>
-                            <CartItemHead />
+                <Grid item container alignItems="stretch">
+                    <Grid item xs={matchesSmallScreen ? 12 : 8}>
+                        <Container className={classes.cart}>
+                            <Divider
+                                variant="fullWidth"
+                                className={classes.divider}
+                            />
                             {cartItems.map((cartItem) => (
                                 <CartItemCard cartItem={cartItem} />
                             ))}
                         </Container>
                     </Grid>
-                    <Grid item container xs={4}>
-                        <Container
-                            style={{
-                                display: "flex",
-                                height: "60vh",
-                            }}
-                        >
+                    <Grid item container xs={matchesSmallScreen ? 12 : 4}>
+                        <Container className={classes.cartSummary}>
                             <CartSummary
                                 subTotalPrice={subTotalPrice}
                                 shippingPrice={shippingPrice}

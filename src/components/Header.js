@@ -30,12 +30,7 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                 style={{ zIndex: "1400", position: "relative" }}
             >
                 <Container>
-                    <Grid
-                        container
-                        direction="row"
-                        alignItems="center"
-                        justify="space-between"
-                    >
+                    <Grid container alignItems="center" justify="space-between">
                         <Grid item xs>
                             <NavLink
                                 to="/"
@@ -57,7 +52,6 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                             xs={6}
                             spacing={4}
                             container
-                            direction="row"
                             justify="center"
                         >
                             <Grid item>
@@ -89,18 +83,9 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                             <Grid item>
                                 <Typography variant="body1">Blog</Typography>
                             </Grid>
-                            <Grid item>
-                                <Typography variant="body1">Others</Typography>
-                            </Grid>
                         </Grid>
 
-                        <Grid
-                            item
-                            xs
-                            container
-                            direction="row"
-                            justify="flex-end"
-                        >
+                        <Grid item xs container justify="flex-end">
                             <Grid item>
                                 <Button
                                     component={NavLink}
@@ -131,9 +116,8 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                 style={{ width: "100vw", height: "80px" }}
                 popperOptions={{
                     modifiers: {
-                        offset: {
-                            enabled: true,
-                            offset: "5,0",
+                        preventOverflow: {
+                            padding: 0,
                         },
                     },
                 }}
@@ -152,7 +136,6 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                         <Container>
                             <Grid
                                 container
-                                direction="row"
                                 spacing={6}
                                 justify="center"
                                 style={{

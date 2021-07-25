@@ -14,7 +14,7 @@ const useStyles = makeStyles({
 const CartSummary = ({ subTotalPrice, shippingPrice, totalPrice }) => {
     const classes = useStyles();
     return (
-        <Grid container direction="column" justify="space-between">
+        <Grid container direction="column" justify="space-around">
             <Grid item container>
                 <Grid item xs={12}>
                     <Box marginBottom="2rem">
