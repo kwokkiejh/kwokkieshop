@@ -1,49 +1,51 @@
 import React, { useState, useEffect } from "react";
-import { Backdrop } from "@material-ui/core";
+import { Drawer, Typography } from "@material-ui/core";
 import Header from "./Header";
 import Footer from "./Footer";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import CondensedHeader from "./CondensedHeader";
-
-const useStyles = makeStyles((theme) => ({
-    backdrop: { zIndex: theme.zIndex.drawer + 1, color: "#fff" },
-}));
+import TempDrawer from "./TempDrawer";
 
 const Layout = (props) => {
-    const classes = useStyles();
     const theme = useTheme();
     const matchesSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
-    const [shopDrawer, setShopDrawer] = useState(false);
-    const handleShopDrawer = () => {
-        setShopDrawer(!shopDrawer);
+    const [tempDrawer, setTempDrawer] = useState(false);
+    const handleTempDrawer = () => {
+        setTempDrawer(!tempDrawer);
+    };
+
+    const [shopMenu, setShopMenu] = useState(false);
+    const handleShopMenu = () => {
+        setShopMenu(!shopMenu);
     };
 
     useEffect(() => {
         if (matchesSmallScreen) {
-            setShopDrawer(false);
+            setShopMenu(false);
+        } else {
+            setTempDrawer(false);
+            setShopMenu(false);
         }
     }, [matchesSmallScreen]);
+
     return (
         <>
             {matchesSmallScreen ? (
-                <CondensedHeader />
+                <CondensedHeader handleTempDrawer={handleTempDrawer} />
             ) : (
-                <Header
-                    shopDrawer={shopDrawer}
-                    handleShopDrawer={handleShopDrawer}
-                />
+                <Header shopMenu={shopMenu} handleShopMenu={handleShopMenu} />
             )}
 
-            <main>
-                {props.children}
-                <Backdrop
-                    className={classes.backdrop}
-                    open={shopDrawer}
-                ></Backdrop>
-            </main>
+            <main>{props.children}</main>
             <Footer />
+            <TempDrawer
+                tempDrawer={tempDrawer}
+                handleTempDrawer={handleTempDrawer}
+                shopMenu={shopMenu}
+                handleShopMenu={handleShopMenu}
+            />
         </>
     );
 };

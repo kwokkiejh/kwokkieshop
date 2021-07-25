@@ -8,6 +8,7 @@ import {
     Badge,
     ClickAwayListener,
     Popper,
+    Backdrop,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
@@ -15,8 +16,40 @@ import { useSelector } from "react-redux";
 
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
+import { makeStyles } from "@material-ui/core/styles";
 
-const Header = ({ shopDrawer, handleShopDrawer }) => {
+const useStyles = makeStyles((theme) => ({
+    root: { zIndex: theme.zIndex.appBar, position: "relative" },
+    popper: {
+        width: "100vw",
+        height: "80px",
+    },
+    popperPaper: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+    },
+    headerButton: {
+        backgroundColor: "transparent",
+        padding: "0",
+        textTransform: "none",
+    },
+    link: {
+        textDecoration: "none",
+        color: "unset",
+    },
+    bold: {
+        fontWeight: "bold",
+    },
+    centerText: {
+        textAlign: "center",
+    },
+    backdrop: { zIndex: theme.zIndex.appBar - 1, color: "#fff" },
+}));
+
+const Header = ({ shopMenu, handleShopMenu }) => {
+    const classes = useStyles();
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
     const inputEl = useRef(null);
@@ -27,21 +60,15 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                 ref={inputEl}
                 square
                 variant="outlined"
-                style={{ zIndex: "1400", position: "relative" }}
+                className={classes.root}
             >
                 <Container>
                     <Grid container alignItems="center" justify="space-between">
                         <Grid item xs>
-                            <NavLink
-                                to="/"
-                                style={{
-                                    textDecoration: "none",
-                                    color: "unset",
-                                }}
-                            >
+                            <NavLink to="/" className={classes.link}>
                                 <Typography
                                     variant="h6"
-                                    style={{ fontWeight: "bold" }}
+                                    className={classes.bold}
                                 >
                                     KwokkieShop
                                 </Typography>
@@ -57,14 +84,10 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                             <Grid item>
                                 <Button
                                     disableRipple
-                                    onClick={handleShopDrawer}
-                                    style={{
-                                        backgroundColor: "transparent",
-                                        padding: "0",
-                                        textTransform: "none",
-                                    }}
+                                    onClick={handleShopMenu}
+                                    className={classes.headerButton}
                                     endIcon={
-                                        shopDrawer ? (
+                                        shopMenu ? (
                                             <ExpandLess />
                                         ) : (
                                             <ExpandMore />
@@ -109,11 +132,11 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                 </Container>
             </Paper>
             <Popper
-                open={shopDrawer}
+                open={shopMenu}
                 anchorEl={inputEl.current}
                 placement="bottom-left"
                 container={inputEl.current}
-                style={{ width: "100vw", height: "80px" }}
+                className={classes.popper}
                 popperOptions={{
                     modifiers: {
                         preventOverflow: {
@@ -122,25 +145,14 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                     },
                 }}
             >
-                <ClickAwayListener onClickAway={handleShopDrawer}>
-                    <Paper
-                        square
-                        elevation={0}
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
+                <ClickAwayListener onClickAway={handleShopMenu}>
+                    <Paper square elevation={0} className={classes.popperPaper}>
                         <Container>
                             <Grid
                                 container
                                 spacing={6}
                                 justify="center"
-                                style={{
-                                    textAlign: "center",
-                                }}
+                                className={classes.centerText}
                             >
                                 <Grid item>
                                     <Typography variant="h6">All</Typography>
@@ -162,6 +174,7 @@ const Header = ({ shopDrawer, handleShopDrawer }) => {
                     </Paper>
                 </ClickAwayListener>
             </Popper>
+            <Backdrop className={classes.backdrop} open={shopMenu}></Backdrop>
         </>
     );
 };

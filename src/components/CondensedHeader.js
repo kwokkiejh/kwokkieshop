@@ -7,23 +7,32 @@ import {
     Button,
     Box,
     Badge,
+    IconButton,
+    Drawer,
+    List,
+    ListItem,
 } from "@material-ui/core";
 import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
 
-const CondensedHeader = () => {
+const useStyles = makeStyles((theme) => ({
+    menuButton: { padding: 0 },
+    link: { textDecoration: "none", color: "unset" },
+    root: { zIndex: theme.zIndex.appBar, position: "relative" },
+    bold: { fontWeight: "bold" },
+}));
+
+const CondensedHeader = ({ handleTempDrawer }) => {
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
+    const classes = useStyles();
 
     return (
         <>
-            <Paper
-                square
-                variant="outlined"
-                style={{ zIndex: "1400", position: "relative" }}
-            >
+            <Paper square variant="outlined" className={classes.root}>
                 <Container>
                     <Grid container alignItems="center" justify="space-between">
                         <Grid item xs={3}>
@@ -32,21 +41,20 @@ const CondensedHeader = () => {
                                 justifyContent="flex-start"
                                 alignItems="center"
                             >
-                                <MenuIcon></MenuIcon>
+                                <IconButton
+                                    className={classes.menuButton}
+                                    onClick={handleTempDrawer}
+                                >
+                                    <MenuIcon />
+                                </IconButton>
                             </Box>
                         </Grid>
                         <Grid item xs={6}>
                             <Box justifyContent="center" display="flex">
-                                <NavLink
-                                    to="/"
-                                    style={{
-                                        textDecoration: "none",
-                                        color: "unset",
-                                    }}
-                                >
+                                <NavLink to="/" className={classes.link}>
                                     <Typography
                                         variant="h6"
-                                        style={{ fontWeight: "bold" }}
+                                        className={classes.bold}
                                     >
                                         KwokkieShop
                                     </Typography>
