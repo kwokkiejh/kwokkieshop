@@ -1,6 +1,6 @@
-# Kwokkieshop
+# KwokkieShop
 
-Access Kwokkieshop here: http://kwokkieshop.s3.us-east-2.amazonaws.com/index.html#/
+Access KwokkieShop here: http://kwokkieshop.s3.us-east-2.amazonaws.com/index.html#/
 
 Frontend deployed to AWS S3 as static website, backend deployed to AWS EC2.
 
