@@ -21,7 +21,7 @@ const ShopAll = () => {
         <>
             <Box height="40vh" position="relative">
                 <ImageComponent
-                    source="/images/shopAllBanner.jpeg"
+                    source="/images/shopAllBanner.jpg"
                     imageStyle={{ width: "100%", height: "100%" }}
                 />
                 <div

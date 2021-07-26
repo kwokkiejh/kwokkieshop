@@ -7,7 +7,7 @@ const TopBannerSection = () => {
     return (
         <Box height="70vh" position="relative">
             <ImageComponent
-                source="/images/topBannerOne.jpeg"
+                source="/images/topBannerOne.jpg"
                 imageStyle={{ opacity: "0.8", width: "100%", height: "100%" }}
             />
             <div
