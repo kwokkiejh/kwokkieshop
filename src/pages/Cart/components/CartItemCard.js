@@ -6,6 +6,7 @@ import { addToCart, removeFromCart } from "../../../actions/cartItemsActions";
 import ClearIcon from "@material-ui/icons/Clear";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageComponent from "../../../components/common/ImageComponent";
+import { Link } from "react-router-dom";
 const useStyles = makeStyles({
     gridMiddle: {
         display: "flex",
@@ -37,6 +38,11 @@ const useStyles = makeStyles({
     bold: {
         fontWeight: "bold",
     },
+    typographyLink: {
+        fontWeight: "bold",
+        textDecoration: "none",
+        color: "unset",
+    },
 });
 
 const CartItemCard = ({ cartItem }) => {
@@ -58,10 +64,12 @@ const CartItemCard = ({ cartItem }) => {
         <>
             <Grid container className={classes.root}>
                 <Grid item xs className={classes.gridImage}>
-                    <ImageComponent
-                        source={image}
-                        imageStyle={{ height: "100%", width: "100%" }}
-                    />
+                    <Link to={`/product/${productId}`}>
+                        <ImageComponent
+                            source={image}
+                            imageStyle={{ height: "100%", width: "100%" }}
+                        />
+                    </Link>
                 </Grid>
                 <Grid
                     item
@@ -71,7 +79,14 @@ const CartItemCard = ({ cartItem }) => {
                     direction="column"
                 >
                     <Grid item>
-                        <Typography className={classes.bold}>{name}</Typography>
+                        <Typography
+                            className={classes.typographyLink}
+                            component={Link}
+                            to={`/product/${productId}`}
+                        >
+                            {name}
+                        </Typography>
+
                         <Typography>${price}</Typography>
                     </Grid>
                     <Grid item>

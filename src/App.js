@@ -7,6 +7,8 @@ import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
 import Layout from "./components/Layout";
+import ShopAll from "./pages/ShopAll/ShopAll";
+
 const theme = createMuiTheme({
     typography: {
         fontFamily: ["Montserrat"].join(","),
@@ -73,6 +75,7 @@ const App = () => {
                         <Route path="/" component={HomePage} exact />
                         <Route path="/cart" component={Cart} exact />
                         <Route path="/product/:id" component={ProductDetails} />
+                        <Route path="/shop/all" component={ShopAll} exact />
                     </Switch>
                 </Layout>
             </ThemeProvider>
