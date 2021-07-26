@@ -9,7 +9,7 @@ import {
     Badge,
     IconButton,
 } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import MenuIcon from "@material-ui/icons/Menu";
 import { useSelector } from "react-redux";
@@ -48,20 +48,20 @@ const CondensedHeader = ({ handleTempDrawer }) => {
                         </Grid>
                         <Grid item xs={6}>
                             <Box justifyContent="center" display="flex">
-                                <NavLink to="/" className={classes.link}>
+                                <Link to="/" className={classes.link}>
                                     <Typography
                                         variant="h6"
                                         className={classes.bold}
                                     >
                                         KwokkieShop
                                     </Typography>
-                                </NavLink>
+                                </Link>
                             </Box>
                         </Grid>
                         <Grid item xs={3}>
                             <Box display="flex" justifyContent="flex-end">
                                 <Button
-                                    component={NavLink}
+                                    component={Link}
                                     to="/cart"
                                     endIcon={
                                         <Badge

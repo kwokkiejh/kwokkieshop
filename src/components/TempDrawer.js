@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import ClearIcon from "@material-ui/icons/Clear";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: { width: "240px" },
@@ -48,7 +49,12 @@ const TempDrawer = ({
                 </ListItem>
                 <Collapse in={shopMenu} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding dense={true}>
-                        <ListItem button className={classes.nested}>
+                        <ListItem
+                            button
+                            className={classes.nested}
+                            component={Link}
+                            to="/shop/all"
+                        >
                             <ListItemText primary="All" />
                         </ListItem>
                         <ListItem button className={classes.nested}>

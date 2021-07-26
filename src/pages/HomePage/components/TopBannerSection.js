@@ -1,10 +1,11 @@
 import React from "react";
 import { Box, Button, Typography } from "@material-ui/core";
 import ImageComponent from "../../../components/common/ImageComponent";
+import { Link } from "react-router-dom";
 
 const TopBannerSection = () => {
     return (
-        <Box height="70vh">
+        <Box height="70vh" position="relative">
             <ImageComponent
                 source="/images/topBannerOne.jpeg"
                 imageStyle={{ opacity: "0.8", width: "100%", height: "100%" }}
@@ -29,6 +30,8 @@ const TopBannerSection = () => {
                     size="large"
                     disableElevation
                     color="primary"
+                    component={Link}
+                    to={"/shop/all"}
                 >
                     <Typography variant="h6" style={{ fontWeight: "bold" }}>
                         Shop All

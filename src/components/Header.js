@@ -10,10 +10,9 @@ import {
     Popper,
     Backdrop,
 } from "@material-ui/core";
-import { NavLink } from "react-router-dom";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { useSelector } from "react-redux";
-
+import { Link } from "react-router-dom";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 import { makeStyles } from "@material-ui/core/styles";
@@ -60,14 +59,14 @@ const Header = ({ shopMenu, handleShopMenu }) => {
                 <Container>
                     <Grid container alignItems="center" justify="space-between">
                         <Grid item xs>
-                            <NavLink to="/" className={classes.link}>
+                            <Link to="/" className={classes.link}>
                                 <Typography
                                     variant="h6"
                                     className={classes.bold}
                                 >
                                     KwokkieShop
                                 </Typography>
-                            </NavLink>
+                            </Link>
                         </Grid>
                         <Grid
                             item
@@ -106,7 +105,7 @@ const Header = ({ shopMenu, handleShopMenu }) => {
                         <Grid item xs container justify="flex-end">
                             <Grid item>
                                 <Button
-                                    component={NavLink}
+                                    component={Link}
                                     to="/cart"
                                     endIcon={
                                         <Badge
@@ -155,9 +154,16 @@ const Header = ({ shopMenu, handleShopMenu }) => {
                                     className={classes.centerText}
                                 >
                                     <Grid item>
-                                        <Typography variant="h6">
-                                            All
-                                        </Typography>
+                                        <Button
+                                            disableRipple
+                                            className={classes.headerButton}
+                                            component={Link}
+                                            to={"/shop/all"}
+                                        >
+                                            <Typography variant="h6">
+                                                All
+                                            </Typography>
+                                        </Button>
                                     </Grid>
 
                                     <Grid item>
